@@ -1,4 +1,4 @@
-Source: gz-rendering10
+Source: gz-rendering11
 Maintainer: Jose Luis Rivero <jrivero@osrfoundation.org>
 Section: science
 Priority: optional
@@ -21,11 +21,11 @@ Build-Depends: cmake,
                libogre-next-2.3-dev,
                libvulkan-dev
 Vcs-Browser: https://github.com/gazebosim/gz-rendering
-Vcs-Git: https://github.com/gazebo-release/gz-rendering10-release
+Vcs-Git: https://github.com/gazebo-release/gz-rendering11-release
 Standards-Version: 4.5.1
 Homepage: http://gazebosim.org/
 
-Package: libgz-rendering10
+Package: libgz-rendering11
 Architecture: any
 Section: libs
 Pre-Depends: ${misc:Pre-Depends}
@@ -45,7 +45,7 @@ Description: Gazebo Rendering classes and functions for robot apps - Shared libr
 #        freeglut3-dev,
 #        libglew-dev,
 
-Package: libgz-rendering10-core-dev
+Package: libgz-rendering11-core-dev
 Architecture: any
 Section: libdevel
 Depends: libgz-cmake5-dev,
@@ -55,7 +55,7 @@ Depends: libgz-cmake5-dev,
          libgz-math9-dev,
          libgz-math9-eigen3-dev,
          libgz-plugin4-dev,
-         libgz-rendering10 (= ${binary:Version}),
+         libgz-rendering11 (= ${binary:Version}),
          libgz-utils4-dev,
          ${misc:Depends}
 Multi-Arch: same
@@ -65,7 +65,7 @@ Description: Gazebo Rendering classes and functions - Core development files
   .
   Core development files
 
-Package: libgz-rendering10-ogre1-dev
+Package: libgz-rendering11-ogre1-dev
 Architecture: any
 Section: libdevel
 Depends: libgz-cmake5-dev,
@@ -76,8 +76,8 @@ Depends: libgz-cmake5-dev,
          libgz-math9-eigen3-dev,
          libogre-1.9-dev,
          libgz-plugin4-dev,
-         libgz-rendering10-core-dev (= ${binary:Version}),
-         libgz-rendering10-ogre1 (= ${binary:Version}),
+         libgz-rendering11-core-dev (= ${binary:Version}),
+         libgz-rendering11-ogre1 (= ${binary:Version}),
          ${misc:Depends}
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Ogre1 dev files
@@ -88,13 +88,13 @@ Description: Gazebo Rendering classes and functions for robot apps - Ogre1 dev f
  .
  Ogre1 component development files
 
-Package: libgz-rendering10-ogre1
+Package: libgz-rendering11-ogre1
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Multi-Arch: same
-Breaks: libgz-rendering10-ogre1-dev (<< 10.0.0-2)
-Replaces: libgz-rendering10-ogre1-dev (<< 10.0.0-2)
+Breaks: libgz-rendering11-ogre1-dev (<< 10.0.0-2)
+Replaces: libgz-rendering11-ogre1-dev (<< 10.0.0-2)
 Description: Gazebo Rendering classes and functions for robot apps - Ogre1 lib
  Gazebo Rendering is a C++ library designed to provide an abstraction for
  different rendering engines. It offers unified APIs for creating 3D graphics
@@ -103,7 +103,7 @@ Description: Gazebo Rendering classes and functions for robot apps - Ogre1 lib
  .
  Ogre1 component shared library
 
-Package: libgz-rendering10-ogre2-dev
+Package: libgz-rendering11-ogre2-dev
 Architecture: any
 Section: libdevel
 Depends: libgz-cmake5-dev,
@@ -115,8 +115,8 @@ Depends: libgz-cmake5-dev,
          libogre-next-2.3-dev,
          libvulkan-dev,
          libgz-plugin4-dev,
-         libgz-rendering10-core-dev (= ${binary:Version}),
-         libgz-rendering10-ogre2 (= ${binary:Version}),
+         libgz-rendering11-core-dev (= ${binary:Version}),
+         libgz-rendering11-ogre2 (= ${binary:Version}),
          ${misc:Depends}
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Development files
@@ -129,13 +129,13 @@ Description: Gazebo Rendering classes and functions for robot apps - Development
  .
  Ogre2 component development files
 
-Package: libgz-rendering10-ogre2
+Package: libgz-rendering11-ogre2
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Multi-Arch: same
-Breaks: libgz-rendering10-ogre2-dev (<< 10.0.0-2)
-Replaces: libgz-rendering10-ogre2-dev (<< 10.0.0-2)
+Breaks: libgz-rendering11-ogre2-dev (<< 10.0.0-2)
+Replaces: libgz-rendering11-ogre2-dev (<< 10.0.0-2)
 Description: Gazebo Rendering classes and functions for robot apps - Development files
  Gazebo Rendering is a C++ library designed to provide an abstraction for
  different rendering engines. It offers unified APIs for creating 3D graphics
@@ -146,13 +146,13 @@ Description: Gazebo Rendering classes and functions for robot apps - Development
  .
  Ogre2 component shared library
 
-Package: libgz-rendering10-dev
+Package: libgz-rendering11-dev
 Architecture: any
 Section: libdevel
-Depends: libgz-rendering10-core-dev (= ${binary:Version}),
-         libgz-rendering10-ogre1-dev (= ${binary:Version}),
-         libgz-rendering10-ogre2-dev (= ${binary:Version}),
-         libgz-rendering10 (= ${binary:Version}),
+Depends: libgz-rendering11-core-dev (= ${binary:Version}),
+         libgz-rendering11-ogre1-dev (= ${binary:Version}),
+         libgz-rendering11-ogre2-dev (= ${binary:Version}),
+         libgz-rendering11 (= ${binary:Version}),
          ${misc:Depends}
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Metapackage
@@ -164,35 +164,3 @@ Description: Gazebo Rendering classes and functions for robot apps - Metapackage
  designed to rapidly develop robot applications.
  .
  Metapackage for development files
-
-Package: gz-jetty-rendering
-Depends: libgz-rendering10-dev (= ${binary:Version}), ${misc:Depends}
-Architecture: all
-Priority: optional
-Section: metapackages
-Description: alias package
- Provides a package for Jetty without exposing the version number.
-
-Package: gz-jetty-rendering-core
-Depends: libgz-rendering10-core-dev (= ${binary:Version}), ${misc:Depends}
-Architecture: all
-Priority: optional
-Section: metapackages
-Description: alias package
- Provides a package for Jetty without exposing the version number.
-
-Package: gz-jetty-rendering-ogre1
-Depends: libgz-rendering10-ogre1-dev (= ${binary:Version}), ${misc:Depends}
-Architecture: all
-Priority: optional
-Section: metapackages
-Description: alias package
- Provides a package for Jetty without exposing the version number.
-
-Package: gz-jetty-rendering-ogre2
-Depends: libgz-rendering10-ogre2-dev (= ${binary:Version}), ${misc:Depends}
-Architecture: all
-Priority: optional
-Section: metapackages
-Description: alias package
- Provides a package for Jetty without exposing the version number.
