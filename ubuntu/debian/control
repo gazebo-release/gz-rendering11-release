@@ -7,21 +7,23 @@ Build-Depends: cmake,
                pkgconf,
                debhelper (>= 11),
                freeglut3-dev,
+               libgl1-mesa-dev,
+               libglu1-mesa-dev,
                libglew-dev,
-               libfreeimage-dev,
-               libgz-cmake5-dev,
-               libgz-common7-events-dev,
-               libgz-common7-geospatial-dev,
-               libgz-common7-graphics-dev,
-               libgz-math9-dev,
-               libgz-math9-eigen3-dev,
-               libgz-plugin4-dev,
-               libgz-utils4-dev,
+               libgz-cmake6-dev,
+               libgz-common8-events-dev,
+               libgz-common8-geospatial-dev,
+               libgz-common8-graphics-dev,
+               libgz-common8-profiler-dev,
+               libgz-math10-dev,
+               libgz-math10-eigen3-dev,
+               libgz-plugin5-dev,
+               libgz-utils5-dev,
                libogre-1.9-dev,
                libogre-next-2.3-dev,
                libvulkan-dev
-Vcs-Browser: https://github.com/gazebosim/gz-rendering
-Vcs-Git: https://github.com/gazebo-release/gz-rendering11-release
+Vcs-Browser: https://github.com/gazebo-release/gz-rendering11-release
+Vcs-Git: https://github.com/gazebo-release/gz-rendering11-release.git
 Standards-Version: 4.5.1
 Homepage: http://gazebosim.org/
 
@@ -30,6 +32,9 @@ Architecture: any
 Section: libs
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: libgz-rendering-generic
+Conflicts: libgz-rendering-generic, libgz-rendering6, libgz-rendering8, libgz-rendering9, libgz-rendering10
+Replaces: libgz-rendering6, libgz-rendering8, libgz-rendering9, libgz-rendering10
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Shared library
  Gazebo Rendering is a C++ library designed to provide an abstraction for
@@ -41,23 +46,25 @@ Description: Gazebo Rendering classes and functions for robot apps - Shared libr
 
 # Only for the examples:
 #
-#        libfreeimage-dev,
 #        freeglut3-dev,
 #        libglew-dev,
 
 Package: libgz-rendering11-core-dev
 Architecture: any
 Section: libdevel
-Depends: libgz-cmake5-dev,
-         libgz-common7-events-dev,
-         libgz-common7-geospatial-dev,
-         libgz-common7-graphics-dev,
-         libgz-math9-dev,
-         libgz-math9-eigen3-dev,
-         libgz-plugin4-dev,
+Depends: libgz-cmake6-dev,
+         libgz-common8-events-dev,
+         libgz-common8-geospatial-dev,
+         libgz-common8-graphics-dev,
+         libgz-math10-dev,
+         libgz-math10-eigen3-dev,
+         libgz-plugin5-dev,
          libgz-rendering11 (= ${binary:Version}),
-         libgz-utils4-dev,
+         libgz-utils5-dev,
          ${misc:Depends}
+Provides: libgz-rendering-core-dev-generic
+Conflicts: libgz-rendering-core-dev-generic, libgz-rendering6-core-dev, libgz-rendering8-core-dev, libgz-rendering9-core-dev, libgz-rendering10-core-dev
+Replaces: libgz-rendering6-core-dev, libgz-rendering8-core-dev, libgz-rendering9-core-dev, libgz-rendering10-core-dev
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions - Core development files
   Gazebo rendering is a component in the Gazebo framework, a set of libraries
@@ -68,17 +75,20 @@ Description: Gazebo Rendering classes and functions - Core development files
 Package: libgz-rendering11-ogre1-dev
 Architecture: any
 Section: libdevel
-Depends: libgz-cmake5-dev,
-         libgz-common7-events-dev,
-         libgz-common7-geospatial-dev,
-         libgz-common7-graphics-dev,
-         libgz-math9-dev,
-         libgz-math9-eigen3-dev,
+Depends: libgz-cmake6-dev,
+         libgz-common8-events-dev,
+         libgz-common8-geospatial-dev,
+         libgz-common8-graphics-dev,
+         libgz-math10-dev,
+         libgz-math10-eigen3-dev,
          libogre-1.9-dev,
-         libgz-plugin4-dev,
+         libgz-plugin5-dev,
          libgz-rendering11-core-dev (= ${binary:Version}),
          libgz-rendering11-ogre1 (= ${binary:Version}),
          ${misc:Depends}
+Provides: libgz-rendering-ogre1-dev-generic
+Conflicts: libgz-rendering-ogre1-dev-generic, libgz-rendering6-ogre1-dev, libgz-rendering8-ogre1-dev, libgz-rendering9-ogre1-dev, libgz-rendering10-ogre1-dev
+Replaces: libgz-rendering6-ogre1-dev, libgz-rendering8-ogre1-dev, libgz-rendering9-ogre1-dev, libgz-rendering10-ogre1-dev
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Ogre1 dev files
  Gazebo Rendering is a C++ library designed to provide an abstraction for
@@ -92,9 +102,10 @@ Package: libgz-rendering11-ogre1
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: libgz-rendering-ogre1-generic
+Conflicts: libgz-rendering-ogre1-generic, libgz-rendering6-ogre1, libgz-rendering8-ogre1, libgz-rendering9-ogre1, libgz-rendering10-ogre1
+Replaces: libgz-rendering6-ogre1, libgz-rendering8-ogre1, libgz-rendering9-ogre1, libgz-rendering10-ogre1
 Multi-Arch: same
-Breaks: libgz-rendering11-ogre1-dev (<< 10.0.0-2)
-Replaces: libgz-rendering11-ogre1-dev (<< 10.0.0-2)
 Description: Gazebo Rendering classes and functions for robot apps - Ogre1 lib
  Gazebo Rendering is a C++ library designed to provide an abstraction for
  different rendering engines. It offers unified APIs for creating 3D graphics
@@ -106,18 +117,21 @@ Description: Gazebo Rendering classes and functions for robot apps - Ogre1 lib
 Package: libgz-rendering11-ogre2-dev
 Architecture: any
 Section: libdevel
-Depends: libgz-cmake5-dev,
-         libgz-common7-events-dev,
-         libgz-common7-geospatial-dev,
-         libgz-common7-graphics-dev,
-         libgz-math9-dev,
-         libgz-math9-eigen3-dev,
+Depends: libgz-cmake6-dev,
+         libgz-common8-events-dev,
+         libgz-common8-geospatial-dev,
+         libgz-common8-graphics-dev,
+         libgz-math10-dev,
+         libgz-math10-eigen3-dev,
          libogre-next-2.3-dev,
          libvulkan-dev,
-         libgz-plugin4-dev,
+         libgz-plugin5-dev,
          libgz-rendering11-core-dev (= ${binary:Version}),
          libgz-rendering11-ogre2 (= ${binary:Version}),
          ${misc:Depends}
+Provides: libgz-rendering-ogre2-dev-generic
+Conflicts: libgz-rendering-ogre2-dev-generic, libgz-rendering6-ogre2-dev, libgz-rendering8-ogre2-dev, libgz-rendering9-ogre2-dev, libgz-rendering10-ogre2-dev
+Replaces: libgz-rendering6-ogre2-dev, libgz-rendering8-ogre2-dev, libgz-rendering9-ogre2-dev, libgz-rendering10-ogre2-dev
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Development files
  Gazebo Rendering is a C++ library designed to provide an abstraction for
@@ -133,9 +147,10 @@ Package: libgz-rendering11-ogre2
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: libgz-rendering-ogre2-generic
+Conflicts: libgz-rendering-ogre2-generic, libgz-rendering6-ogre2, libgz-rendering8-ogre2, libgz-rendering9-ogre2, libgz-rendering10-ogre2
+Replaces: libgz-rendering6-ogre2, libgz-rendering8-ogre2, libgz-rendering9-ogre2, libgz-rendering10-ogre2
 Multi-Arch: same
-Breaks: libgz-rendering11-ogre2-dev (<< 10.0.0-2)
-Replaces: libgz-rendering11-ogre2-dev (<< 10.0.0-2)
 Description: Gazebo Rendering classes and functions for robot apps - Development files
  Gazebo Rendering is a C++ library designed to provide an abstraction for
  different rendering engines. It offers unified APIs for creating 3D graphics
@@ -154,6 +169,9 @@ Depends: libgz-rendering11-core-dev (= ${binary:Version}),
          libgz-rendering11-ogre2-dev (= ${binary:Version}),
          libgz-rendering11 (= ${binary:Version}),
          ${misc:Depends}
+Provides: libgz-rendering-dev-generic
+Conflicts: libgz-rendering-dev-generic, libgz-rendering6-dev, libgz-rendering8-dev, libgz-rendering9-dev, libgz-rendering10-dev
+Replaces: libgz-rendering6-dev, libgz-rendering8-dev, libgz-rendering9-dev, libgz-rendering10-dev
 Multi-Arch: same
 Description: Gazebo Rendering classes and functions for robot apps - Metapackage
  Gazebo Rendering is a C++ library designed to provide an abstraction for
